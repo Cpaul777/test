@@ -22,7 +22,7 @@ jobs:
     - name: commit changes
         git config --global user.name 'Github Action'
         git config --global user.email 'action@github.com'
-        git commit -am "fixup: Format Python code with Black"
+        git commit -am 'fixup: Format Python code with Black'
         git push
 
     - name: push changes
