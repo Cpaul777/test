@@ -1,5 +1,5 @@
-from os import open
 from os import environ
+from os import open
 
 
 def add(a, b):
