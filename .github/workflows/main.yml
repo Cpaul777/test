@@ -15,7 +15,7 @@ jobs:
       run: black --check .
       if: failure()
         run: |
-        black .
+          black .
 
     - name: commit changes
       run: |
