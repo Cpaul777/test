@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: github-actions-testing
 
 on:
   push:
@@ -12,24 +12,31 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    name: Formatting
 
     steps:
     - name: checkout source repo
       uses: actions/checkout@v2
 
     - name: Install Dependencies
-      run: pip install black
-
-    - name: Run black --check .
-      run: black --check .
-
-    - name: checks if fail
-      if: failure()
       run: |
-        black .
+        python -m pip install pipenv
+        python -m pipenv sync --dev
+
+    - name: format python imports by isort
+      run: isort .
+
+    - name: format python code by black
+      run: black .
+
+    - name: git adds, commits, and pushes
+      run: |
         git config --global user.name 'Github Action'
         git config --global user.email 'action@github.com'
         git remote set-url origin https://x-access-token:${{ secrets.GH_ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY
         git checkout $GITHUB_HEAD_REF
-        git commit -am "fixup: Format Python code with Black"
+        git commit -am "fixup: Format Python code with Black and Isort"
         git push
+
+    - name: lints the code
+      run: flake8 .
