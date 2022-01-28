@@ -21,9 +21,7 @@ jobs:
         git config --global user.name 'Github Action'
         git config --global user.email 'action@github.com'
         git commit -am 'fixup: Format Python code with Black'
-
-    - name: push changes
-      uses: ad-m/github-push-action@v0.5.0
-      with:
-        github_token: ${{ secrets.GH_ACCESS_TOKEN }}
-        branch: ${{ github.ref }}
+        git remote set-url origin https://x-access-token:${{ secrets.GH_ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY
+        git checkout $GITHUB_HEAD_REF
+        git commit -am "fixup: Format Python code with Black"
+        git push
