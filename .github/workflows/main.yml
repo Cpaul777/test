@@ -1,4 +1,5 @@
 name: learn-github-actions
+
 on:
   push:
   - '**.py'
@@ -8,7 +9,7 @@ on:
 jobs:
   format-python:
     runs-on: ubuntu-latest
-    name: CI workflow
+    name: format python
     steps:
     - name: checkout source repo
       uses: actions/checkout@v2
