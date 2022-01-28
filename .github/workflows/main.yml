@@ -1,0 +1,22 @@
+on: [push, pull_request]
+  paths:
+    "**.py"
+
+jobs:
+  python-lint:
+    runs-on: ubuntu-latest
+    name: CI workflow
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Black
+      run: pip install black
+    - name: Run black --check .
+      run: black --check .
+    - name: If needed, commit black changes to the pull request
+      if: failure()
+      run: |
+        black .
+        git config --global user.name 'Github Action'
+        git config --global user.email 'action@github.com'
+        git commit -am "fixup: Format Python code with Black"
+        git push
