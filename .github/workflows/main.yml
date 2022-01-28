@@ -9,15 +9,16 @@ on:
       - '**.py'
 
 jobs:
-  format-python:
+  build:
+
     runs-on: ubuntu-latest
-    name: format python
+
     steps:
     - name: checkout source repo
       uses: actions/checkout@v2
 
-    # - name: Install Black
-    #   run: pip install black
+    - name: Install Dependencies
+      run: pip install black
 
     - name: Run black --check .
       run: black --check .
