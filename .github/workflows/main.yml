@@ -1,7 +1,5 @@
 name: learn-github-actions
 on: [push, pull_request]
-paths:
-  "**.py"
 jobs:
   python-lint:
     runs-on: ubuntu-latest
