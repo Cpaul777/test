@@ -14,6 +14,10 @@ def multiply(a, b):
     return a * b
 
 
+
+
+
+
 def divide(a, b):
     return a / b
 
@@ -23,7 +27,7 @@ def mod(a, b):
 
 
 def power(a, b):
-    return a ** b
+    return a ** 
 
 
 def square(a):
