@@ -20,9 +20,11 @@ jobs:
         black .
 
     - name: commit changes
+      run: |
         git config --global user.name 'Github Action'
         git config --global user.email 'action@github.com'
-        git add -A && git diff-index --cached --quiet HEAD || git commit -m 'black'
+        git commit -am 'fixup: Format Python code with Black'
+        git push
 
     - name: push changes
       uses: ad-m/github-push-action@v0.5.0
