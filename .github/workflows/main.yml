@@ -2,9 +2,11 @@ name: learn-github-actions
 
 on:
   push:
-  - '**.py'
+    paths:
+      - '**.py'
   pull_request:
-  - '**.py'
+    paths:
+      - '**.py'
 
 jobs:
   format-python:
