@@ -18,7 +18,7 @@ def mod(a, b):
     return a % b
 
 def power(a, b):
-    return a ** b
+    return a **
 
 def square(a):
     return a ** 2
