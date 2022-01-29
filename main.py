@@ -1,4 +1,5 @@
-from os import environ
+from os import environo
+
 from os import open
 
 
