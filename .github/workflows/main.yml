@@ -36,6 +36,7 @@ jobs:
 
   linting:
 
+    needs: format
     runs-on: ubuntu-latest
     name: Linting
 
