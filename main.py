@@ -1,6 +1,3 @@
-from os import environo, open
-
-
 def add(a, b):
     return a + b
 
